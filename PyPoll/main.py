@@ -33,6 +33,30 @@ for value in poll.items():
 for n in candidate_votes:
     vote_percentage.append(n/total_votes * 100)
 
+winner_list = []
+
+for name in winner_list:
+    if max(candidate_votes) == name[1]:
+        winner_list.append(name[0])
+
+winner = winner_list[0]
+
+if len(winner_list) > 1:
+    for w in range(1, len(winner_list)):
+        winner = winner + ", " + winner_list[w]
+
+output_file = os.path.join('Output', 'election_results_' + str(filepath) +'.txt')
+
+with open(output_file, 'w') as txtfile:
+    txtfile.writelines('Election Results \n------------------------- \nTotal Votes: ' + str(total_votes) + 
+      '\n-------------------------\n')
+    for entry in winner_list:
+        txtfile.writelines(entry[0] + ": " + str(entry[2]) +'%  (' + str(entry[1]) + ')\n')
+    txtfile.writelines('------------------------- \nWinner: ' + winner + '\n-------------------------')
+
+with open(output_file, 'r') as readfile:
+    print(readfile.read())
+
 
 
 

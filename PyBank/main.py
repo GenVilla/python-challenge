@@ -9,9 +9,10 @@ with open(filepath, newline = 'r') as csvfile:
     csv_header = next(csvreader)
     print(f"CSV Header: {csv_header}")
 
+budget = {}
+
 total_months = []
 net_total = []
-average = []
 greatest_increase = []
 greatest_decrease = []
 
@@ -28,6 +29,9 @@ def print_data(budget_data):
             budget[row[2]] = budget[row[2]] + 1
         else:
             budget[row[2]] = 1
+    
+    for net_total in budget_data:
+        net_total = net_total + 1
 
 def average(budget_data):
     length = len(budget_data)
@@ -36,8 +40,16 @@ def average(budget_data):
         total += net_total
     return Total / length
 
-for greatest_increase in budget_data:
-    if 
+for greatest_increase in budget:
+    greatest_increase  = net_total > 0
+
+for greatest_decrease in budget:
+    greatest_decrease = net_total < 0
+
+
+
+
+
 
 
 
